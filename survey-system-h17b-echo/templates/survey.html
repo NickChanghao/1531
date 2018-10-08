@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>{{survey.get_title()}}</title>
+   </head>
+   <body>
+      <div id="container">
+         <h1>{{survey.get_title()}}</h1>
+         <p>{{survey.get_desc()}}</p>
+         <form method="POST">
+            {% for question in survey.get_questions() %}
+            {% set quest_loop = loop %}
+            <p>{{question.__str__()}}</p>
+               {% for response in question.get_responses() %}
+               <input type="radio" name="resp{{quest_loop.index}}" value="{{loop.index}}">{{response.__str__()}}
+               {% endfor %}
+            <br />  
+            {% endfor %}
+            <input type="submit" value="Submit">
+         </form>
+      </div>
+   </body>
+</html>

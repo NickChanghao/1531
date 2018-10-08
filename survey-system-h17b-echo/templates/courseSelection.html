@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Create Survey</title>
+      <style>
+         #scroller {
+            overflow-y: scroll;
+            max-height: 300px;
+         }
+      </style>
+   </head>
+   <body>
+      <a href="{{url_for('index')}}">home</a>
+         {% for courses in data %}
+         <h1>{{courses.get_session()}}</h1>
+            {% for course in courses.get_courses() %}
+            <a href="{{url_for('test3', course_id=course.get_id())}}">{{course.get_course()}} {{course.get_session()}}</a>
+            {% endfor %}
+         {% endfor %} 
+   </body>
+</html>

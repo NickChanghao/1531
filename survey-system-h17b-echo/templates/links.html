@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>links</title>
+   </head>
+   <body>
+      <div id="container">
+         <a href="{{url_for('index')}}">home</a>
+         <h1>links</h1>
+            {% for survey in surveys%}
+               <a href="http://127.0.0.1:8080{{url_for('load_survey', key=survey.get_key())}}">http://127.0.0.1:8080{{url_for('load_survey', key=survey.get_key())}}</a><br />
+            {% endfor %}
+      </div>
+   </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Create Survey</title>
+      <style>
+         #scroller {
+            overflow-y: scroll;
+            max-height: 300px;
+         }
+      </style>
+   </head>
+   <body>
+      <a href="{{url_for('index')}}">home</a>
+      <h1>{{course.get_course()}} {{course.get_session()}}</h1>
+      <form method="POST">
+         <input type="text" placeholder="Description", name="desc"><br />
+         <div id="scroller">
+            <h3>Mandatory Questions</h3>
+            {% for question in man_questions %}
+            <input type="checkbox" name="quest" value="{{question.get_id()}}">{{question}}<br />
+            {% endfor %}
+            <h3>Optional Questions</h3>
+            {% for question in opt_questions %}
+            <input type="checkbox" name="quest" value="{{question.get_id()}}">{{question}}<br />
+            {% endfor %}
+         </div>
+         <input type="submit" value="Create">
+      </form>
+   </body>
+</html>

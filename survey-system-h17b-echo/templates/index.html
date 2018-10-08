@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Dashboard</title>
+      <style>
+         #container {
+            width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+         }
+         .pannel {
+            text-decoration: none;
+            display: inline-block;
+	         background-color: #caebf2;
+	         color: black;
+	         width: 200px;
+            line-height: 80px;
+	         font-size: 20px;
+	         padding-top: 10px;
+	         padding-bottom: 10px;
+         }
+      </style>
+   </head>
+   <body>
+      <!--should style link-->
+      <div id="container">
+         <h1>Dashboard</h1>
+         <a class="pannel" href="{{url_for('create_questions')}}">Create Questions</a>
+         <a class="pannel" href="{{url_for('create_survey')}}">Create Survey</a>
+         <a class="pannel" href="{{url_for('links')}}">Links</a>
+      </div>
+   </body>
+</html>

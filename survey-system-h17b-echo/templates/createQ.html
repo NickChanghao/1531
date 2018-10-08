@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!--Should probably use create element and child stuff but this will do for now-->
+      <title>Create Question</title>
+      <style>
+         #container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+         }
+      </style>
+      <script>
+         function addResponse() {
+            var responses = document.getElementById("responses");
+            var input = document.createElement("INPUT");
+            input.setAttribute("type", "text");
+            input.setAttribute("name","ans");
+            input.setAttribute("placeholder", "Answer");
+            responses.appendChild(input);
+            responses.appendChild(document.createElement("BR"));
+         }
+      </script>
+   </head>
+   <body>
+      <a href="{{url_for('index')}}">home</a>
+      <h1>Add Question</h1>
+      <form method="POST">
+         <div id="container">
+            <input type="text" placeholder="Question" name="question" required><br />
+            <input type="radio" name="man" value="1" required>Mandatory
+            <input type="radio" name="man" value="0">Optional
+            <br />
+            <!--
+            <div id="responses">
+               <input type="text" placeholder="Answer" name="ans" required><br />
+               <input type="text" placeholder="Answer" name="ans" required><br />
+            </div>
+            -->
+         <div>
+         <!-- <button type="button" name="add" onClick="addResponse()">Add Response</button> -->
+         <input type="submit" value="Add Question">
+      </form>
+   </body>
+</html>
